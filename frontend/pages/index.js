@@ -107,7 +107,7 @@ class Index extends Component {
     return (
       <Layout>
         <Menu menu={headerMenu} />
-        <div className="intro bg-black white ph3 pv4 ph5-m pv5-l flex flex-column flex-row-l">
+        <div className="intro bg-ie-main-color white ph3 pv4 ph5-m pv5-l flex flex-column flex-row-l">
           <div className="color-logo w-50-l mr3-l">
             <Logo width={440} height={280} />
           </div>
@@ -141,6 +141,12 @@ class Index extends Component {
             __html: page.content.rendered,
           }}
         />
+        <style jsx>{` 
+          .bg-ie-main-color {
+            background: #4337A0;
+          }
+        `} 
+        </style>
       </Layout>
     );
   }

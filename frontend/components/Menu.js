@@ -3,8 +3,10 @@ import React, { Component } from 'react';
 import Link from 'next/link';
 import Router from 'next/router';
 import Config from '../config';
-import Logo from '../static/images/starter-kit-logo.svg';
+import Logo from '../static/images/ie-logo.svg';
 import SearchIcon from '../static/images/search.svg';
+// import './styles/style.scss';
+
 
 const getSlug = url => {
   const parts = url.split('/');
@@ -15,6 +17,7 @@ class Menu extends Component {
   state = {
     token: null,
     username: null,
+    dropdownIsOpen: false
   };
 
   componentDidMount() {
@@ -22,6 +25,13 @@ class Menu extends Component {
     const username = localStorage.getItem(Config.USERNAME);
     this.setState({ token, username });
   }
+
+  toggleMenuDropdown = () => {
+    this.setState((prevState) => ({
+      dropdownIsOpen: !prevState.dropdownIsOpen
+    }))
+  }
+
 
   render() {
     const { menu } = this.props;
@@ -32,24 +42,20 @@ class Menu extends Component {
     }
 
     return (
-      <div className="menu bb">
-        <div className="flex justify-between w-90-l center-l">
-          <div className="brand bb flex justify-center items-center w-100 justify-between-l bn-l">
-            <Link href="/">
-              <a className="starter-kit-logo">
-                <Logo width={48} height={32}/>
-                <div className="pl2">
-                  WordPress + React<br/>
-                  Starter Kit
-                </div>
-              </a>
-            </Link>
-          </div>
-          <div className="links dn flex-l justify-between items-center">
+      <div className="menu">
+        <div className="flex justify-between center-l">
+          <div className="links dn flex-l w-100 justify-between items-center">
             {menu.items.map(item => {
               if (item.object === 'custom') {
+
                 return (
-                  <a href={item.url} key={item.ID}>{item.title}</a>
+                  <div className="dropdown-container">
+                  <button onClick={this.toggleMenuDropdown} key={item.ID}>{item.title}</button>
+                  <ul> {this.state.dropdownIsOpen && item.child_items ?
+                    item.child_items.map(child_item => (
+                      <li>{child_item.title}</li>
+                    )) : null }</ul>
+                  </div>
                 );
               }
               const slug = getSlug(item.url);
@@ -64,28 +70,14 @@ class Menu extends Component {
                 </Link>
               );
             })}
-
-            <Link href="/search">
-              <a>
-                <SearchIcon width={25} height={25} />
+          <div className="brand bb flex justify-center items-center w-100 justify-between-l bn-l">
+            <Link href="/">
+              <a className="starter-kit-logo">
+                <Logo width={224} height={54}/>
               </a>
             </Link>
-
-            {token ? (
-              <a
-                className="pointer round-btn ba bw1 pv2 ph3"
-                onClick={() => {
-                  localStorage.removeItem(Config.AUTH_TOKEN);
-                  Router.push('/login');
-                }}
-              >
-                Log out {username}
-              </a>
-            ) : (
-              <Link href="/login">
-                <a className="round-btn ba bw1 pv2 ph3">Log in</a>
-              </Link>
-            )}
+          </div>
+          <a id="menu-last-item" href="https://immigrationequality.wedid.it/">Donate</a>
           </div>
         </div>
         <div className="dropdown bb flex justify-center items-center dn-l">
@@ -117,6 +109,53 @@ class Menu extends Component {
             })}
           </select>
         </div>
+        <style jsx>{`
+          .menu {
+            background-color: #4337A0;
+          }
+
+          button {
+            background-color: #4337A0;
+            color: #fff;
+            border: none;
+            text-align: left;
+          }
+
+          a {
+            color: #fff;
+          }
+
+          .dropdown-container {
+            display: flex;
+            flex-direction: column;
+            margin: 1rem .5rem;
+            width: 34%;
+            position: relative;
+          }
+          
+          ul {
+            padding: 1rem 0;
+            margin-block-end: 0;
+            position: absolute;
+          }
+
+          li {
+            background: #4337A0;
+            color: #fff;
+            padding: .25rem .5rem;
+          }
+
+          li:before {
+            content: '';
+            padding-right: 0;
+            margin-left: 0;
+          }
+
+          #menu-last-item {
+            right: 0;
+            padding-right: 2rem;
+          }
+        `}</style>
       </div>
     );
   }

@@ -53,7 +53,7 @@ class Menu extends Component {
                   <button onClick={this.toggleMenuDropdown} key={item.ID}>{item.title}</button>
                   <ul> {this.state.dropdownIsOpen && item.child_items ?
                     item.child_items.map(child_item => (
-                      <li>{child_item.title}</li>
+                      <li><a href={child_item.url} key={child_item.ID}>{child_item.title}</a></li>
                     )) : null }</ul>
                   </div>
                 );

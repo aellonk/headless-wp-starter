@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import Link from 'next/link';
 import Router from 'next/router';
 import Config from '../config';
-import Logo from '../static/images/ie-logo.svg';
+import Logo from '../static/images/insertLogo.svg';
 import SearchIcon from '../static/images/search.svg';
 // import './styles/style.scss';
 
@@ -77,7 +77,6 @@ class Menu extends Component {
               </a>
             </Link>
           </div>
-          <a id="menu-last-item" href="https://immigrationequality.wedid.it/">Donate</a>
           <Link href="/search">
               <a>
                 <SearchIcon width={25} height={25} className="pr3"/>

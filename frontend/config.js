@@ -1,3 +1,4 @@
+// Replace the following wpURL with link to backend Wordpress API 
 let wpUrl = 'http://pnp-wp-api.partnerandpartners.com/wp-json';
 
 // If we're running on Docker, use the WordPress container hostname instead of localhost.

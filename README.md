@@ -1,3 +1,14 @@
+Headless WP Starter with Docker Removed
+
+Follow [this guide on how to How To Install Linux, Apache, MySQL, PHP (LAMP) stack on Ubuntu 18.04](https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-ubuntu-18-04)
+
+Then follow [this guide to install WordPress with LAMP on Ubuntu 18.04](https://www.digitalocean.com/community/tutorials/how-to-install-wordpress-with-lamp-on-ubuntu-18-04). 
+
+Skip Docker Instructions Below.
+
+Below is the README from [Postlight's Headless-WP-Starter](https://github.com/postlight/headless-wp-starter):
+
+
 ![WordPress + React Starter Kit](frontend/static/images/wordpress-plus-react-header.png)
 
 [![Build status](https://travis-ci.org/postlight/headless-wp-starter.svg)](https://travis-ci.org/postlight/headless-wp-starter)

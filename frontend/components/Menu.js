@@ -49,7 +49,7 @@ class Menu extends Component {
               if (item.object === 'custom') {
 
                 return (
-                  <div className="dropdown-container">
+                  <div className="dropdown-container" key={item.title}>
                   <button onClick={this.toggleMenuDropdown} key={item.ID}>{item.title}</button>
                   <ul> {this.state.dropdownIsOpen && item.child_items ?
                     item.child_items.map(child_item => (
@@ -79,8 +79,8 @@ class Menu extends Component {
           </div>
           <a id="menu-last-item" href="https://immigrationequality.wedid.it/">Donate</a>
           <Link href="/search">
-              <a className="pr3">
-                <SearchIcon width={25} height={25} />
+              <a>
+                <SearchIcon width={25} height={25} className="pr3"/>
               </a>
           </Link>
           </div>

@@ -78,6 +78,11 @@ class Menu extends Component {
             </Link>
           </div>
           <a id="menu-last-item" href="https://immigrationequality.wedid.it/">Donate</a>
+          <Link href="/search">
+              <a className="pr3">
+                <SearchIcon width={25} height={25} />
+              </a>
+          </Link>
           </div>
         </div>
         <div className="dropdown bb flex justify-center items-center dn-l">

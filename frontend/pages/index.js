@@ -6,7 +6,6 @@ import Layout from '../components/Layout';
 import PageWrapper from '../components/PageWrapper';
 import Menu from '../components/Menu';
 import Config from '../config';
-import Logo from '../static/images/starter-kit-logo.svg';
 
 const wp = new WPAPI({ endpoint: Config.apiUrl });
 
@@ -108,9 +107,6 @@ class Index extends Component {
       <Layout>
         <Menu menu={headerMenu} />
         <div className="intro bg-ie-main-color white ph3 pv4 ph5-m pv5-l flex flex-column flex-row-l">
-          <div className="color-logo w-50-l mr3-l">
-            <Logo width={440} height={280} />
-          </div>
           <div className="subhed pr6-l">
             <h1>{page.title.rendered}</h1>
             <div className="dek">

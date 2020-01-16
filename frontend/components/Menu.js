@@ -72,7 +72,7 @@ class Menu extends Component {
             })}
           <div className="brand bb flex justify-center items-center w-100 justify-between-l bn-l">
             <Link href="/">
-              <a className="starter-kit-logo">
+              <a className="ie-header-logo">
                 <Logo width={224} height={54}/>
               </a>
             </Link>

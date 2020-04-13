@@ -16,7 +16,9 @@ If using Local By Flywheel:
 4. In frontend > config.js, replace the following wpURL with link to backend Wordpress API. The wordpress API is the WP site followed by wp-json, example: 
 ``` let wpUrl = 'http://headlesswptestproject.local/wp-json/';```
 5. Open a terminal, 
+
 ```$ cd frontend ```
+
 ```$ yarn && yarn start ```
 7. Should open up localhost:3000. This will start up the frontend server. 
 8. If there is an error, create a page in WP with the title/slug = “welcome”
